@@ -501,12 +501,12 @@ static const struct {
         {"ALL|ANYONECANPAY", SIGHASH_ALL|SIGHASH_ANYONECANPAY},
         {"NONE|ANYONECANPAY", SIGHASH_NONE|SIGHASH_ANYONECANPAY},
         {"SINGLE|ANYONECANPAY", SIGHASH_SINGLE|SIGHASH_ANYONECANPAY},
-        {"ALL|SBTC_FORK", SIGHASH_ALL | SIGHASH_SBTC_FORK},
-        {"NONE|SBTC_FORK", SIGHASH_NONE | SIGHASH_SBTC_FORK},
-        {"SINGLE|SBTC_FORK", SIGHASH_SINGLE | SIGHASH_SBTC_FORK},
-        {"ALL|SBTC_FORK|ANYONECANPAY", SIGHASH_ALL | SIGHASH_SBTC_FORK | SIGHASH_ANYONECANPAY},
-        {"NONE|SBTC_FORK|ANYONECANPAY", SIGHASH_NONE | SIGHASH_SBTC_FORK | SIGHASH_ANYONECANPAY},
-        {"SINGLE|SBTC_FORK|ANYONECANPAY", SIGHASH_SINGLE | SIGHASH_SBTC_FORK | SIGHASH_ANYONECANPAY},
+        {"ALL|BTCS_FORK", SIGHASH_ALL | SIGHASH_BTCS_FORK},
+        {"NONE|BTCS_FORK", SIGHASH_NONE | SIGHASH_BTCS_FORK},
+        {"SINGLE|BTCS_FORK", SIGHASH_SINGLE | SIGHASH_BTCS_FORK},
+        {"ALL|BTCS_FORK|ANYONECANPAY", SIGHASH_ALL | SIGHASH_BTCS_FORK | SIGHASH_ANYONECANPAY},
+        {"NONE|BTCS_FORK|ANYONECANPAY", SIGHASH_NONE | SIGHASH_BTCS_FORK | SIGHASH_ANYONECANPAY},
+        {"SINGLE|BTCS_FORK|ANYONECANPAY", SIGHASH_SINGLE | SIGHASH_BTCS_FORK | SIGHASH_ANYONECANPAY},
 };
 
 static bool findSighashFlags(int& flags, const std::string& flagStr)
@@ -537,7 +537,7 @@ static CAmount AmountFromValue(const UniValue& value)
 
 static void MutateTxSign(CMutableTransaction& tx, const std::string& flagStr)
 {
-    int nHashType = SIGHASH_ALL | SIGHASH_SBTC_FORK;
+    int nHashType = SIGHASH_ALL | SIGHASH_BTCS_FORK;
 
     if (flagStr.size() > 0)
         if (!findSighashFlags(nHashType, flagStr))
@@ -630,7 +630,7 @@ static void MutateTxSign(CMutableTransaction& tx, const std::string& flagStr)
 
     const CKeyStore& keystore = tempKeystore;
 
-    bool fHashSingle = ((nHashType & ~(SIGHASH_ANYONECANPAY | SIGHASH_SBTC_FORK)) == SIGHASH_SINGLE);
+    bool fHashSingle = ((nHashType & ~(SIGHASH_ANYONECANPAY | SIGHASH_BTCS_FORK)) == SIGHASH_SINGLE);
 
     // Sign what we can:
     for (unsigned int i = 0; i < mergedTx.vin.size(); i++) {

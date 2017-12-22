@@ -1230,7 +1230,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     chainparams.SetSbtcForkHeigh(forkblock);
 
     // for test
-    int NO = gArgs.GetArg("-sbtcdiffcutydec",-1);
+    int NO = gArgs.GetArg("-btcsdiffcutydec",-1);
     if(NO != -1)
         chainparams.SetSbtcForkDec(NO);
 

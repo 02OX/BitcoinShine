@@ -153,7 +153,7 @@ public:
         pchMessageStart[1] = 0xbe;
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd9;
-        nDefaultPort = 8334;
+        nDefaultPort = 8324;
         nPruneAfterHeight = 100000;
 
         genesis = CreateGenesisBlock(1231006505, 2083236893, 0x1d00ffff, 1, 50 * COIN * COIN_SCALE);
@@ -163,9 +163,9 @@ public:
 
         // Note that of those with the service bits flag, most only support a subset of possible options
 
-        vSeeds.emplace_back("seed.superbtca.com", false);
+        /*vSeeds.emplace_back("seed.superbtca.com", false);
         vSeeds.emplace_back("seed.superbtca.info", false);
-        vSeeds.emplace_back("seed.superbtc.org", false);
+        vSeeds.emplace_back("seed.superbtc.org", false);*/
 //        vSeeds.emplace_back("seed.bitcoin.sipa.be", true);
 //        vSeeds.emplace_back("dnsseed.bluematt.me", true);
 
@@ -180,10 +180,9 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
-        // addrss :12XC2eso5P464A6KzRNCnZfrzKSTWC15XE
-        cCheckPointPubKey= CPubKey(ParseHex("034e97579c5613b3eb49cfc2367229576613450128d795513a6bd2a8fd62122a85"));
-        preMinerAddres = "148Rg5eF5Z1vbApApzc2saSq1geWDgfRQo";
-        checkpointData = (CCheckpointData) {
+        //cCheckPointPubKey= CPubKey(ParseHex("034e97579c5613b3eb49cfc2367229576613450128d795513a6bd2a8fd62122a85"));
+        preMinerAddres = "1ABUKyodo4TZn4cbwAemF1hbdKdnwbKSWn";
+        /*checkpointData = (CCheckpointData) {
             {
                 { 11111, uint256S("0x0000000069e244f73d78e8fd29ba2fd2ed618bd6fa2ee92559f542fdb26e7c1d")},
                 { 33333, uint256S("0x000000002dd5588a74784eaa7ab0507a18ad16a236e7b1ce69f00d7ddfb5d0a6")},
@@ -199,7 +198,7 @@ public:
                 {279000, uint256S("0x0000000000000001ae8c72a0b0c301f67e3afca10e819efa9041e458e9bd7e40")},
                 {295000, uint256S("0x00000000000000004d9b4ef50f0f9d686fd69db2e03af35a100370c64632a983")},
             }
-        };
+        };*/
 
         chainTxData = ChainTxData{
             // Data as of block 000000000000000000d97e53664d17967bd4ee50b23abb92e54a34eb222d15ae (height 478913).
@@ -257,7 +256,7 @@ public:
         pchMessageStart[1] = 0x11;
         pchMessageStart[2] = 0x09;
         pchMessageStart[3] = 0x07;
-        nDefaultPort = 18334;
+        nDefaultPort = 18324;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1296688602, 414098458, 0x1d00ffff, 1, 50 * COIN * COIN_SCALE);
@@ -366,11 +365,11 @@ public:
         cCheckPointPubKey= CPubKey(ParseHex("02246a362f9f887db8d33185ad1f72512884618f6789e279c34a86e18590c78154"));
         preMinerAddres =  "mtkXqYXjPB3EChJcEq8bJJfeRrCsotFxhs";
 
-        checkpointData = (CCheckpointData) {
+        /*checkpointData = (CCheckpointData) {
             {
                 {0, uint256S("0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206")},
             }
-        };
+        };*/
 
         chainTxData = ChainTxData{
             0,

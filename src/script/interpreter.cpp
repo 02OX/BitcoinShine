@@ -185,7 +185,7 @@ bool static IsDefinedHashtypeSignature(const valtype &vchSig) {
     if (vchSig.size() == 0) {
         return false;
     }
-    unsigned char nHashType = vchSig[vchSig.size() - 1] & (~(SIGHASH_ANYONECANPAY | SIGHASH_SBTC_FORK));
+    unsigned char nHashType = vchSig[vchSig.size() - 1] & (~(SIGHASH_ANYONECANPAY | SIGHASH_BTCS_FORK));
     if (nHashType < SIGHASH_ALL || nHashType > SIGHASH_SINGLE)
         return false;
 
@@ -210,8 +210,8 @@ bool CheckSignatureEncoding(const std::vector<unsigned char> &vchSig, unsigned i
             return set_error(serror, SCRIPT_ERR_SIG_HASHTYPE);
         }
         unsigned char nHashType = vchSig[vchSig.size() - 1];
-        bool sbtcForkHash = nHashType & SIGHASH_SBTC_FORK;
-        bool sbtcforkEnabled = flags & SCRIPT_ENABLE_SIGHASH_SBTC_FORK;
+        bool sbtcForkHash = nHashType & SIGHASH_BTCS_FORK;
+        bool sbtcforkEnabled = flags & SCRIPT_ENABLE_SIGHASH_BTCS_FORK;
 
         if(!sbtcForkHash && sbtcforkEnabled) {
             return set_error(serror, SCRIPT_ERR_ILLEGAL_SBTC_FORKID);
@@ -1232,7 +1232,7 @@ uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsig
         ss << txTo.nLockTime;
         // Sighash type
         ss << nHashType;
-        if (nHashType & SIGHASH_SBTC_FORK) {
+        if (nHashType & SIGHASH_BTCS_FORK) {
             ss << std::string("sbtc");
         }
 
@@ -1259,7 +1259,7 @@ uint256 SignatureHash(const CScript& scriptCode, const CTransaction& txTo, unsig
     // Serialize and hash
     CHashWriter ss(SER_GETHASH, 0);
     ss << txTmp << nHashType;
-    if (nHashType & SIGHASH_SBTC_FORK) {
+    if (nHashType & SIGHASH_BTCS_FORK) {
         ss << std::string("sbtc");
     }
 
@@ -1438,7 +1438,7 @@ bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, const C
     set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR);
    
     // If FORKID is enabled, we also ensure strict encoding.
-    if (flags & SCRIPT_ENABLE_SIGHASH_SBTC_FORK) {
+    if (flags & SCRIPT_ENABLE_SIGHASH_BTCS_FORK) {
         flags |= SCRIPT_VERIFY_STRICTENC;
     }
     
