@@ -17,13 +17,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Super Bitcoin"
-            VALUE "FileDescription",    "sbtc-tx (CLI SBTC transaction editor utility)"
+            VALUE "FileDescription",    "btcs-tx (CLI SBTC transaction editor utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "sbtc-tx"
+            VALUE "InternalName",       "btcs-tx"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "sbtc-tx.exe"
-            VALUE "ProductName",        "sbtc-tx"
+            VALUE "OriginalFilename",   "btcs-tx.exe"
+            VALUE "ProductName",        "btcs-tx"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END
