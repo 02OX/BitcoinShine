@@ -373,7 +373,7 @@ btcsd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 btcsd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-btcs_SOURCES += bitcoind-res.rc
+btcsd_SOURCES += bitcoind-res.rc
 endif
 
 btcsd_LDADD = \
