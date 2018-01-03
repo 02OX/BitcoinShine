@@ -14,7 +14,7 @@
  * target servers or GUI users specifically.
  */
 
-const std::string CLIENT_NAME("SuperBitcoin");
+const std::string CLIENT_NAME("BitcoinShine");
 
 
 /**
